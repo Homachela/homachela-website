@@ -1,222 +1,95 @@
-/* Переменные для легкой смены цвета */
+/* Переменные для легкой смены "глючных" цветов */
 :root {
-    --dark-bg: #0A0A10;
-    --neon-blue: #00FFFF;
-    --neon-purple: #FF00FF;
-    --text-color: #EAEAEA;
-    --accent-color: var(--neon-blue);
+    --bg-color: #C0C0C0; /* Типичный серый фон Windows 95 */
+    --main-border-color: #000000;
+    --header-bg: #000080; /* Синяя шапка */
+    --error-color: #FF0000;
+    --link-color: #0000FF;
+    --hover-color: #FF00FF; /* Кислотный розовый */
+    --terminal-bg: #000000;
+    --terminal-fg: #00FF00; /* Зеленый текст терминала */
 }
 
-/* Общий стиль и фон */
+/* Общие стили */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--text-color);
-    margin: 0;
+    background-color: var(--bg-color);
+    color: #000000;
+    font-family: "Courier New", Courier, monospace;
+    margin: 20px;
     padding: 0;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-}
-
-/* Ссылки и Навигация */
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s, text-shadow 0.3s;
-}
-
-a:hover {
-    color: var(--text-color);
-    text-shadow: 0 0 5px var(--accent-color);
-}
-
-.header {
-    padding: 20px 50px;
-    background: rgba(10, 10, 16, 0.9);
-    position: fixed;
-    width: 100%;
+    border: 5px solid var(--main-border-color); /* Жирная рамка */
     box-sizing: border-box;
-    z-index: 100;
 }
 
-.header nav a {
-    margin-right: 25px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.9em;
-}
-
-/* Общие секции */
-.content-section {
-    padding: 100px 50px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* НЕОНОВЫЙ ТЕКСТ */
-.neon-text {
-    color: var(--accent-color);
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
+/* Заголовки */
+h1 {
+    font-size: 24px;
+    background-color: var(--header-bg);
+    color: #FFFFFF;
+    padding: 8px;
+    margin: 0;
+    text-align: center;
 }
 
 h2 {
-    font-size: 2.5em;
-    font-weight: 800;
-    margin-bottom: 30px;
-    text-align: center;
-    color: var(--text-color);
-    text-shadow: 0 0 5px var(--neon-purple); /* Используем второй цвет для заголовков */
+    font-size: 18px;
+    color: #800000; /* Старый бордовый цвет */
+    border-bottom: 2px dashed var(--header-bg);
+    padding-top: 20px;
 }
 
-/* 1. ГЛАВНАЯ СЕКЦИЯ (HERO) */
-.hero-section {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+/* Ссылки */
+a:link, a:visited {
+    color: var(--link-color);
+    text-decoration: underline;
 }
 
-.hero-section h1 {
-    font-size: 7em;
-    margin-bottom: 0.1em;
-    line-height: 1;
+a:hover {
+    color: var(--hover-color);
 }
 
-.hero-section .subtitle {
-    font-size: 1.5em;
-    margin-bottom: 40px;
+/* Общие контейнеры */
+.section-box {
+    border: 1px solid var(--main-border-color);
+    padding: 15px;
+    margin-bottom: 25px;
+    background-color: #FFFFFF; /* Белый "документ" */
 }
 
-/* Неоновая кнопка */
-.neon-button {
-    background: none;
-    border: 2px solid var(--accent-color);
-    padding: 12px 30px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+/* Бегущая строка */
+.marquee-wrapper {
+    margin: 5px 0;
+}
+.marquee-wrapper marquee {
+    color: var(--error-color);
+    font-weight: bold;
+    background-color: #FFFF00; /* Желтый фон предупреждения */
 }
 
-.neon-button:hover {
-    background-color: var(--accent-color);
-    color: var(--dark-bg);
-    box-shadow: 0 0 20px var(--accent-color);
-    text-shadow: none;
+/* Секция Терминала */
+.terminal {
+    background-color: var(--terminal-bg);
+    color: var(--terminal-fg);
+    padding: 10px;
+    margin-top: 10px;
+    white-space: pre; /* Сохраняет форматирование как в .txt */
+    border: 1px solid #00FF00;
 }
 
-/* 3. ПРАВИЛА ИГРЫ (RULES) */
-.rules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+/* Секция Контактов */
+.link-list {
+    list-style-type: square;
+    margin-left: -20px;
+    padding-left: 0;
 }
 
-.rule-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    border-radius: 5px;
-    border-left: 3px solid var(--neon-purple);
-    box-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
-    transition: transform 0.3s;
+.attention {
+    color: var(--error-color);
+    font-weight: bold;
 }
 
-.rule-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
-}
-
-.rule-card h3 {
-    color: var(--neon-purple);
-    font-weight: 800;
-    margin-top: 0;
-}
-
-/* 4. КОНТАКТЫ (CONNECT) */
-.links-list a {
-    display: block;
-    padding: 10px 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-    font-size: 1.1em;
-}
-
-.links-list a span {
-    display: inline-block;
-    width: 100px;
-    font-weight: 600;
-    color: var(--neon-purple);
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid rgba(0, 255, 255, 0.1);
-}
-
-
-/* Эффект Glitch (Опционально: можно удалить, если не нравится) */
-@keyframes glitch-anim {
-    0% { clip: rect(20px, 9999px, 50px, 0); }
-    10% { clip: rect(60px, 9999px, 80px, 0); }
-    20% { clip: rect(10px, 9999px, 40px, 0); }
-    30% { clip: rect(70px, 9999px, 90px, 0); }
-    40% { clip: rect(30px, 9999px, 60px, 0); }
-    50% { clip: rect(80px, 9999px, 100px, 0); }
-    60% { clip: rect(5px, 9999px, 25px, 0); }
-    70% { clip: rect(45px, 9999px, 75px, 0); }
-    80% { clip: rect(90px, 9999px, 120px, 0); }
-    90% { clip: rect(15px, 9999px, 45px, 0); }
-    100% { clip: rect(30px, 9999px, 60px, 0); }
-}
-
-.glitch {
-    position: relative;
-    color: var(--text-color);
-}
-
-.glitch:before,
-.glitch:after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.glitch:before {
-    left: 2px;
-    text-shadow: -1px 0 var(--neon-blue);
-    animation: glitch-anim 2s infinite linear alternate-reverse;
-    clip: rect(44px, 450px, 56px, 0);
-}
-
-.glitch:after {
-    left: -2px;
-    text-shadow: -1px 0 var(--neon-purple);
-    animation: glitch-anim 3s infinite linear alternate-reverse;
-    clip: rect(85px, 450px, 100px, 0);
-}
-
-/* Медиа-запрос для мобильных устройств */
-@media (max-width: 768px) {
-    .header {
-        padding: 15px 20px;
-    }
-    .header nav a {
-        margin-right: 15px;
-    }
-    .hero-section h1 {
-        font-size: 4em;
-    }
-    .content-section {
-        padding: 50px 20px;
-    }
-    .glitch:before, .glitch:after {
-        content: attr(data-text);
-    }
+.footer-note {
+    font-size: 10px;
+    color: gray;
+    margin-top: 20px;
 }
