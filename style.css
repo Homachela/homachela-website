@@ -1,0 +1,222 @@
+/* Переменные для легкой смены цвета */
+:root {
+    --dark-bg: #0A0A10;
+    --neon-blue: #00FFFF;
+    --neon-purple: #FF00FF;
+    --text-color: #EAEAEA;
+    --accent-color: var(--neon-blue);
+}
+
+/* Общий стиль и фон */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Ссылки и Навигация */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+a:hover {
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+.header {
+    padding: 20px 50px;
+    background: rgba(10, 10, 16, 0.9);
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.header nav a {
+    margin-right: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+/* Общие секции */
+.content-section {
+    padding: 100px 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* НЕОНОВЫЙ ТЕКСТ */
+.neon-text {
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+h2 {
+    font-size: 2.5em;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--neon-purple); /* Используем второй цвет для заголовков */
+}
+
+/* 1. ГЛАВНАЯ СЕКЦИЯ (HERO) */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+}
+
+.hero-section h1 {
+    font-size: 7em;
+    margin-bottom: 0.1em;
+    line-height: 1;
+}
+
+.hero-section .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+/* Неоновая кнопка */
+.neon-button {
+    background: none;
+    border: 2px solid var(--accent-color);
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.neon-button:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px var(--accent-color);
+    text-shadow: none;
+}
+
+/* 3. ПРАВИЛА ИГРЫ (RULES) */
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.rule-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 5px;
+    border-left: 3px solid var(--neon-purple);
+    box-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
+    transition: transform 0.3s;
+}
+
+.rule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
+}
+
+.rule-card h3 {
+    color: var(--neon-purple);
+    font-weight: 800;
+    margin-top: 0;
+}
+
+/* 4. КОНТАКТЫ (CONNECT) */
+.links-list a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    font-size: 1.1em;
+}
+
+.links-list a span {
+    display: inline-block;
+    width: 100px;
+    font-weight: 600;
+    color: var(--neon-purple);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+
+/* Эффект Glitch (Опционально: можно удалить, если не нравится) */
+@keyframes glitch-anim {
+    0% { clip: rect(20px, 9999px, 50px, 0); }
+    10% { clip: rect(60px, 9999px, 80px, 0); }
+    20% { clip: rect(10px, 9999px, 40px, 0); }
+    30% { clip: rect(70px, 9999px, 90px, 0); }
+    40% { clip: rect(30px, 9999px, 60px, 0); }
+    50% { clip: rect(80px, 9999px, 100px, 0); }
+    60% { clip: rect(5px, 9999px, 25px, 0); }
+    70% { clip: rect(45px, 9999px, 75px, 0); }
+    80% { clip: rect(90px, 9999px, 120px, 0); }
+    90% { clip: rect(15px, 9999px, 45px, 0); }
+    100% { clip: rect(30px, 9999px, 60px, 0); }
+}
+
+.glitch {
+    position: relative;
+    color: var(--text-color);
+}
+
+.glitch:before,
+.glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch:before {
+    left: 2px;
+    text-shadow: -1px 0 var(--neon-blue);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+    clip: rect(44px, 450px, 56px, 0);
+}
+
+.glitch:after {
+    left: -2px;
+    text-shadow: -1px 0 var(--neon-purple);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+    clip: rect(85px, 450px, 100px, 0);
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+    .header nav a {
+        margin-right: 15px;
+    }
+    .hero-section h1 {
+        font-size: 4em;
+    }
+    .content-section {
+        padding: 50px 20px;
+    }
+    .glitch:before, .glitch:after {
+        content: attr(data-text);
+    }
+}
